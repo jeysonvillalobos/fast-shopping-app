@@ -1,0 +1,111 @@
+/* Style Guide
+    1. Home-main
+*/
+
+/*-------- 1. Home-main --------*/
+
+.Home-main{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: auto;
+    margin-top: 20px;
+}
+.Home-sort{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+#sort-products{
+    width: 110px;
+    margin-left:10px;
+    outline: none;
+}
+.Home-products{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Home-product{
+    width: 550px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+
+}
+
+.Home-img{
+    flex: 1;
+    background-image: url('https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Home-description{
+    flex: 2;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.Home-descriptionItem{
+    flex: 1;
+}
+.Home-productCategory{
+    font-size: 12px;
+}
+.Home-productDescription{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.Home-buy-price{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Button{
+    width: 110px;
+    padding: 5px;
+    background-color: #1A73E8;
+    border-color: #1A73E8;
+    border-radius: 2px;
+    color:white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 5px;
+}
+.Home-price{
+    font-weight: bold;
+}
+
+
+.Home-pagination{
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.Home-box-pagination{
+    width: 50px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.Home-box-pagination a{
+    text-decoration: none;
+    color:  black;
+    
+}

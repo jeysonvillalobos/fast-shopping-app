@@ -1,0 +1,126 @@
+/*
+    Style guide
+    1.Cart-main
+    2.Cart-product 
+    3.Cart-footer
+    4.Cart-buttonCheck
+*/
+
+/*-------- 1.Cart-main --------*/
+.Cart-main{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: auto;
+    margin-top: 20px;
+}
+
+
+.Cart-title{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Cart-products{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*-------- 2.Cart-product  --------*/
+.Cart-product{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    display: flex;
+    background-color: white;
+}
+.Cart-img{
+    flex: 0.7;
+    background-image: url('https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Cart-description{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.Cart-description-title{
+    width: 90%;
+    padding: 5px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.Cart-description-title h4{
+    margin-right: 10px;
+}
+.Cart-description p{
+    margin-left: 15px;
+}
+.Cart-smallLetter{
+    font-size: 13px;
+}
+.Cart-unitPrice{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Cart-price{
+    font-weight: bold;
+}
+.Cart-qty{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Cart-totalPrice{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Cart-totalPrice p{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*-------- 3.Cart-footer --------*/
+.Cart-footer{
+
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Cart-footer a{
+    color: black;
+}
+.Cart-footer p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*-------- 4.Cart-buttonCheck --------*/
+.Cart-buttonCheck{
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
