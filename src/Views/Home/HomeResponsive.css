@@ -1,0 +1,31 @@
+@media only screen and (max-width:1024px){
+    .Home-product{
+        width: 46.5%;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .Home-products{
+        flex-direction: column;
+        align-items: center;
+    }
+    .Home-product{
+        width: 90%;
+    }
+
+}
+
+@media only screen and (max-width:600px){
+    .Home-product{
+        flex-direction: column;
+        height: 400px;
+    }
+    .Home-img{
+        width: 100%;
+    }
+    .Home-description{
+        width: 100%;
+        text-align: center;
+        
+    }
+}

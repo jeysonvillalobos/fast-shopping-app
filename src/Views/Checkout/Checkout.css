@@ -1,0 +1,138 @@
+/*
+    Style guide
+    
+    1.Checkout-main
+    2.Checkout-customerInformation
+    3.Checkout-orderSummary
+    4.Checkout-userExist
+*/
+
+/*-------- 1.Checkout-main ---------*/
+
+.Checkout-main{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*-------- 2.Checkout-customerInformation ---------*/
+
+.Checkout-customerInformation{
+    width: 45%;
+    height: 500px;
+}
+.Checkout-customerInformation h3{
+    margin-bottom: 15px;
+}
+.Checkout-userData{
+    width: 100%;
+    height: auto;
+    padding: 20px 10px 20px 0px;
+    border: 1px solid black;
+}
+
+.Checkout-td-label{
+    width: 120px;
+    text-align: end;
+}
+.Checkout-td-radio{
+    text-align: end;
+    width: 160px;
+}
+.Checkout-td-radio label{
+    margin: 5px;
+}
+.Checkout-form{
+    margin-top: 10px;
+}
+.Checkout-require{
+    color: red;
+}
+.Checkout-td-input{
+    width: 70%;
+}
+.Checkout-td{
+    width: 120px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3px;
+    margin: 2px;
+}
+.Checkout-input{
+    width: 100%;
+    outline: none;
+    padding: 3px;
+    resize: none;
+}
+
+/*-------- 3.Checkout-orderSummary ---------*/
+
+.Checkout-orderSummary{
+    width: 50%;
+    height: auto;
+}
+.Checkout-orderSummary h3{
+    margin-bottom: 15px;
+}
+.Checkout-tableOrder {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Checkout-tableOrder td,th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.Checkout-tableOrder tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.Checkout-totalPrice{
+    width: 100%;
+    text-align: end;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.Checkout-button{
+    width: 100%;
+    text-align: end;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.Button{
+    width: 110px;
+    padding: 5px;
+    background-color: #1A73E8;
+    border-color: #1A73E8;
+    border-radius: 2px;
+    color:white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*-------- 4.Checkout-userExist ---------*/
+
+.Checkout-userExist{
+    width: 76%;
+    margin:20px auto;
+}
+.Checkout-userExist h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.Checkout-lookupAgain{
+    margin-top: 15px;
+    color: #1A73E8;
+    cursor: pointer;
+    text-decoration: underline;
+}

@@ -23,6 +23,18 @@
     justify-content: space-between;
     align-items: center;
 }
+.button{
+    width: 110px;
+    padding: 5px;
+    background-color: #1A73E8;
+    border-color: #1A73E8;
+    border-radius: 2px;
+    color:white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 .Cart-products{
     width: 100%;

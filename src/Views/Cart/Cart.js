@@ -14,7 +14,7 @@ class Cart extends Component {
                 <div className="Cart-main">
                     <div className="Cart-title">
                         <h3>Shopping Cart</h3>
-                        <button>Check Out</button>
+                        <button className="button">Check Out</button>
                     </div>
 
                     <div className="Cart-products">
@@ -104,7 +104,7 @@ class Cart extends Component {
                             <div className="Cart-description">
                                 <div className="Cart-description-title">
                                     <h4>Samsum Galaxy S4</h4>
-                                    <FaTrashAlt />
+                                    <FaTrashAlt style={{cursor:'pointer'}} />
                                 </div> 
                                 <p className="Cart-smallLetter">Product Category</p>
                             </div>
@@ -135,7 +135,7 @@ class Cart extends Component {
                         <p>Total: $440.43</p>
                     </div>
                     <div className="Cart-buttonCheck">
-                        <button>Check Out</button>
+                        <button className="button">Check Out</button>
                     </div>
 
                 </div>

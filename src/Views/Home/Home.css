@@ -27,29 +27,28 @@
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 .Home-product{
-    width: 550px;
+    width: 47.5%;
     height: 200px;
-    margin-right: 20px;
     margin-bottom: 20px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     display: flex;
-
 }
 
 .Home-img{
-    flex: 1;
-    background-image: url('https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg');
+    width: 30%;
+    height: 100%;
+    background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/4e894c2b76dd4c8e9013aafc016047af_9366/Superstar_Shoes_White_FV3284_01_standard.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .Home-description{
-    flex: 2;
-    width: 300px;
+    width: 70%;
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -80,6 +79,7 @@
     font-weight: bold;
     outline: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .Home-price{
     font-weight: bold;

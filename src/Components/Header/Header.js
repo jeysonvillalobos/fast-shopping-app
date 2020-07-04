@@ -10,7 +10,7 @@ class Header extends Component {
                 <div className="Header-container">
                     <h2>Fast Shopping</h2>
                     <div className='Header-cart'>
-                        <TiShoppingCart size={32} style={{position:'absolute',cursor:'pointer'}}/>
+                        <TiShoppingCart className="carro" size={32} style={{position:'absolute',cursor:'pointer'}}/>
                         <div className="Header-cart-items-num">
                             <p>2</p>
                         </div>

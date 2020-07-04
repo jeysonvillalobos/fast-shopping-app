@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
+import './HomeResponsive.css';
+
 import { TiArrowLeftThick,TiArrowRightThick } from "react-icons/ti";
 
 //Components
@@ -32,7 +34,7 @@ class Home extends Component {
                                 <div className="Home-descriptionItem">
                                     <h4>Samsung Galaxy</h4>
                                     <p className="Home-productCategory">Product Category</p>
-                                    <p className="Home-productDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolor</p>
+                                    <p className="Home-productDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolor ascalsdjbalsd lasjdc a lasdjkcnalsdkjcalskdjnlaskdc lkjasdcn</p>
                                 </div>
                                 <div className="Home-buy-price">
                                     <button className="Button">Add to Cart</button>
@@ -150,9 +152,6 @@ class Home extends Component {
                                 </div>
                             </div>
                         </div>
-
-
-
 
 
 
