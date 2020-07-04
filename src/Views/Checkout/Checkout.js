@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Checkout.css';
+import './CheckoutResponsive.css';
 
 //Components
 import Header from '../../Components/Header/Header';
@@ -35,9 +36,9 @@ class Checkout extends Component {
                                 </table>
                             </div>
 
-
-
-                            <form className="Checkout-form" style={{display:'none'}}>
+        
+                            {/* style={{display:'none'}} */}
+                            <form className="Checkout-form" style={{display:'none'}} >
                                 <table className="Checkout-tableForm">
                                     <tbody>
                                         <tr>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Thanks.css';
+import './ThanksResponsive.css';
 import { GrStatusGood } from 'react-icons/gr';
 
 //Components

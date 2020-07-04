@@ -1,0 +1,10 @@
+@media only screen and (max-width:425px){
+    
+    .Thanks-main h2{
+        font-size: 20px;
+    }
+    .Thanks-p{
+        font-size: 17px;
+    }
+
+}
