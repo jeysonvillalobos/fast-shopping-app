@@ -11,6 +11,10 @@
     height: auto;
     margin-top: 20px;
 }
+.Home-empty{
+    text-align: center;
+    margin: 10px;
+}
 .Home-sort{
     width: 100%;
     display: flex;
@@ -42,7 +46,6 @@
 .Home-img{
     width: 30%;
     height: 100%;
-    background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/4e894c2b76dd4c8e9013aafc016047af_9366/Superstar_Shoes_White_FV3284_01_standard.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -94,6 +97,10 @@
     justify-content: center;
     margin-bottom: 40px;
 }
+.Home-pagination a {
+    text-decoration: none;
+    color: black;
+}
 .Home-box-pagination{
     width: 50px;
     height: 100%;
@@ -103,6 +110,10 @@
     align-items: center;
     border: 1px solid black;
     cursor: pointer;
+}
+.Home-box-current{
+    background-color: #1A73E8;
+    color: white;
 }
 .Home-box-pagination a{
     text-decoration: none;

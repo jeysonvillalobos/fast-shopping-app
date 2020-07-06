@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const load = require('../../middleware/load');
-const usersModel = load.Model("usersModel");
+const USERS_MODEL = load.Model("usersModel");
 
 router.post('/insert',function(req,res){
 
@@ -11,7 +11,7 @@ router.post('/insert',function(req,res){
     let phoneNumber = req.body.phoneNumber;
     let email = req.body.email;
 
-    usersModel.insert(fullname,id,address,phoneNumber,email);
+    USERS_MODEL.insert(fullname,id,address,phoneNumber,email);
     res.json({status:true});
     
 });
@@ -19,7 +19,7 @@ router.post('/insert',function(req,res){
 router.post('/searchEmail',function(req,res){
 
     let email = req.body.email;
-    usersModel.searchEmail(email,function(rel){
+    USERS_MODEL.searchEmail(email,function(rel){
         res.json(rel);
     });
 
