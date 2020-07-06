@@ -1,4 +1,3 @@
-<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H112C85.5 0 64 21.5 64 48v48H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h272c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H40c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H64v128c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z"></path></svg>
 <h1 align="center">Fast Shopping App</h1>
 
 ## Fast Shopping
@@ -6,7 +5,49 @@ Fast Shopping is an app to make purchases easily. This application is created wi
 
 ## Getting started
 
-### Prerequisites
+## Install
+```sh
+$ git clone https://github.com/jeysonvillalobos/fast-shopping-app.git
+```
 
+Once downloaded you have to download the node dependencies
+### React 
+```sh
+$ C:\fast-shopping-app\react> npm install
+```
+### Server 
+```sh
+$ C:\fast-shopping-app\server> npm install
+```
 
+## Database connection
 
+Inside the server folder there is a folder called DBquery, there is the database of Fast shopping app.
+```sh
+fast-shopping-app\server\DBquery\Query.sql
+```
+Run Query.sql in your mysql database.
+
+### Server config
+inside the server folder there is a file called .env. You have to edit this file and enter your data to enter the database.
+```sh
+$ fast-shopping-app\server\.dotenv
+```
+
+```sh
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=root
+DB_DATABASE=fastshopping
+```
+
+## Run project
+Go to each of the reaction and server folders and run the following commands from the console.
+```sh
+$ C:\fast-shopping-app\react> npm start
+```
+```sh
+$ C:\fast-shopping-app\react> node app.js
+```
+
+Thank you very much.
