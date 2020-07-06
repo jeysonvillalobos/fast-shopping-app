@@ -20,10 +20,12 @@
     justify-content: space-between;
     align-items: center;
 }
-.Header-logo{
+.Header-logo a{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 .Header-title{
     margin-left: 10px;
@@ -42,6 +44,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.Header-cart a {
+    text-decoration: none;
+    color: black;
 }
 
 /*--------- 2. Responsive desing --------*/

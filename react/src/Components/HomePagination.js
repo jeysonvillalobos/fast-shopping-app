@@ -14,7 +14,7 @@ class HomePagination extends Component {
     }
 
     arrows(data){
-        console.log('Cambiars');
+        this.props.arrows(data);
     }
 
     render(){
@@ -35,7 +35,6 @@ class HomePagination extends Component {
 
         return(
             <div className="Home-pagination">
-                
                 <div className="Home-box-pagination" onClick={this.arrows.bind(this,0)}><TiArrowLeftThick /></div>
                 { box.map(data => data) }
                 <div className="Home-box-pagination" onClick={this.arrows.bind(this,1)}><TiArrowRightThick /></div>

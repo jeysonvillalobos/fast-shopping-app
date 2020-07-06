@@ -1,4 +1,6 @@
 import React,{ Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import './Cart.css';
 import './CartResponsive.css';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -15,7 +17,7 @@ class Cart extends Component {
                 <div className="Cart-main">
                     <div className="Cart-title">
                         <h3>Shopping Cart</h3>
-                        <button className="button">Check Out</button>
+                        <Link to='/checkout'><button className="button">Check Out</button></Link>
                     </div>
 
                     <div className="Cart-products">
@@ -118,7 +120,7 @@ class Cart extends Component {
                         <p>Total: $440.43</p>
                     </div>
                     <div className="Cart-buttonCheck">
-                        <button className="button">Check Out</button>
+                        <Link to='/checkout'><button className="button">Check Out</button></Link>
                     </div>
 
                 </div>

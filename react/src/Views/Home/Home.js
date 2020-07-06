@@ -9,36 +9,67 @@ import Sort from '../../Components/Sort';
 import Product from '../../Components/Product';
 import HomePagination from '../../Components/HomePagination';
 
-
-
 class Home extends Component {
 
-    state = {
-        offset:0
-    };
+    state = { offset:0 };
 
     componentDidMount(){
         this.getProducts();
         this.props.PAGINATION();
     }
 
-    componentDidUpdate(){
-        if(this.props.match.params.offset !== this.state.offset){
+    componentDidUpdate(prevProps , prevState){
+        if(prevProps.match.params.offset !== prevState.offset){
             this.getProducts();
             this.setState({ offset:this.props.match.params.offset });
         }
     }
 
     getProducts(){
-        if(!this.props.match.params.offset)
+        if(this.props.match.params.offset !== undefined)
         {
-            this.props.GET_PRODUCTS(0);
-            this.props.PAGINATION_CURRENT(0);
-        }
-        else{
             this.props.GET_PRODUCTS(this.props.match.params.offset + 0);   
             this.props.PAGINATION_CURRENT(Number(this.props.match.params.offset));
         }
+        else{
+            this.props.GET_PRODUCTS(0);
+            this.props.PAGINATION_CURRENT(0);
+        }
+    }
+
+    arrows(data){
+        let pageCurrent = Number(this.props.match.params.offset);
+        let totalBox = Math.floor(this.props.paginationBoxes / 10);
+        
+        if(pageCurrent)
+        {
+            if(data === 0)
+            {
+                if(pageCurrent !== 0)
+                {
+                    this.props.history.push(`/home/${ pageCurrent - 1}`);
+                    this.getProducts();
+                    window.scrollTo(0, 0);
+                }
+            }
+            else if (data === 1){
+                if(pageCurrent !== totalBox)
+                {
+                    this.props.history.push(`/home/${ pageCurrent + 1}`);
+                    this.getProducts();
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+        else{
+            if(data === 1)
+            {
+                this.props.history.push(`/home/1`);
+                this.getProducts();
+                window.scrollTo(0, 0);
+            }
+        }
+
     }
 
     render(){
@@ -68,7 +99,7 @@ class Home extends Component {
                         <HomePagination 
                             getProducts = { this.getProducts.bind(this) }
                             productsCount = { Math.floor(this.props.paginationBoxes / 10) } 
-                            offset = { this.state.offset }
+                            arrows = { this.arrows.bind(this) }
                         />
                     </div>
                 }

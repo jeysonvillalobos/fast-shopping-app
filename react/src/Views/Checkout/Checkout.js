@@ -7,6 +7,18 @@ import Header from '../../Components/Header/Header';
 
 class Checkout extends Component {
 
+    state = {
+        newCustomer:true,
+        selectedOption:'newCustomer'
+    };
+
+    radioHandle(data){
+        console.log(data.target.value);
+        this.setState({
+            selectedOption: data.target.value
+        });
+    }
+
     render(){
         return(
             <div className="Checkout">
@@ -24,11 +36,11 @@ class Checkout extends Component {
                                         <tr>
                                             <td className="Checkout-td-label"><label>Are you?</label></td>
                                             <td className="Checkout-td-radio">
-                                                <input type="radio" id="newCustomer" name="newOldCustomer" value="newCustomer"></input>
+                                                <input type="radio" id="newCustomer" onChange={this.radioHandle.bind(this)} checked={this.state.selectedOption === 'newCustomer'} name="newOldCustomer" value="newCustomer"></input>
                                                 <label htmlFor="newCustomer">New Customer</label>
                                             </td>
                                             <td  className="Checkout-td-radio">
-                                                <input type="radio" id="existingCustomer" name="newOldCustomer" value="existingCustomer"></input>
+                                                <input type="radio" id="existingCustomer" onChange={this.radioHandle.bind(this)} checked={this.state.selectedOption === 'existingCustomer'} name="newOldCustomer" value="existingCustomer"></input>
                                                 <label htmlFor="existingCustomer">Existing Customer</label>
                                             </td>
                                         </tr>
@@ -37,42 +49,45 @@ class Checkout extends Component {
                             </div>
 
         
-                            {/* style={{display:'none'}} */}
-                            <form className="Checkout-form" style={{display:'none'}} >
-                                <table className="Checkout-tableForm">
-                                    <tbody>
-                                        <tr>
-                                            <td className="Checkout-td"><label htmlFor="fullName">Full name <span className="Checkout-require">*</span></label></td>
-                                            <td  className="Checkout-td-input"><input type="text" id="fullName" className="Checkout-input"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="Checkout-td"><label htmlFor="id">Id <span className="Checkout-require">*</span></label></td>
-                                            <td><input type="text" id="id" className="Checkout-input"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="Checkout-td"><label htmlFor="address">Address <span className="Checkout-require">*</span></label></td>
-                                            <td><textarea name="address" id="address" className="Checkout-input" rows="5"></textarea></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="Checkout-td"><label htmlFor="phoneNumber">Phone Number</label></td>
-                                            <td><input type="text" id="phoneNumber" className="Checkout-input"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="Checkout-td"><label htmlFor="email">Email <span className="Checkout-require">*</span></label></td>
-                                            <td><input type="email" id="email" className="Checkout-input"/></td>
-                                        </tr>
-                                    </tbody>   
-                                </table>
-                            </form>
+                            { this.state.selectedOption === 'newCustomer' ? 
+                                <form className="Checkout-form" >
+                                    <table className="Checkout-tableForm">
+                                        <tbody>
+                                            <tr>
+                                                <td className="Checkout-td"><label htmlFor="fullName">Full name <span className="Checkout-require">*</span></label></td>
+                                                <td  className="Checkout-td-input"><input type="text" id="fullName" className="Checkout-input"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="Checkout-td"><label htmlFor="id">Id <span className="Checkout-require">*</span></label></td>
+                                                <td><input type="text" id="id" className="Checkout-input"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="Checkout-td"><label htmlFor="address">Address <span className="Checkout-require">*</span></label></td>
+                                                <td><textarea name="address" id="address" className="Checkout-input" rows="5"></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="Checkout-td"><label htmlFor="phoneNumber">Phone Number</label></td>
+                                                <td><input type="text" id="phoneNumber" className="Checkout-input"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="Checkout-td"><label htmlFor="email">Email <span className="Checkout-require">*</span></label></td>
+                                                <td><input type="email" id="email" className="Checkout-input"/></td>
+                                            </tr>
+                                        </tbody>   
+                                    </table>
+                                </form>
+                            
+                                :
 
-                            <div className="Checkout-userExist">
-                                <h4>Welcome back, John Doe</h4>
-                                <p>ID:123456</p>
-                                <p>Address: Main Street United States</p>
-                                <p>Phone Number: 000 000 0000</p>
-                                <p>Email: johndoe@email.com</p>
-                                <p className="Checkout-lookupAgain">Not John? Lookup again</p>
-                            </div>
+                                <div className="Checkout-userExist">
+                                    <h4>Welcome back, John Doe</h4>
+                                    <p>ID:123456</p>
+                                    <p>Address: Main Street United States</p>
+                                    <p>Phone Number: 000 000 0000</p>
+                                    <p>Email: johndoe@email.com</p>
+                                    <p className="Checkout-lookupAgain">Not John? Lookup again</p>
+                                </div>
+                            }
 
 
 
