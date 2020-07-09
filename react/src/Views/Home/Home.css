@@ -9,7 +9,7 @@
     max-width: 1200px;
     margin: auto;
     height: auto;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 .Home-empty{
     text-align: center;
@@ -83,6 +83,11 @@
     outline: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.Button-added{
+    text-align: center;
+    background-color: #51e81a !important;
+    border-color: #51e81a !important;
 }
 .Home-price{
     font-weight: bold;

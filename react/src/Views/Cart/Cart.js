@@ -1,15 +1,20 @@
 import React,{ Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './Cart.css';
 import './CartResponsive.css';
-import { FaTrashAlt } from 'react-icons/fa';
+
 
 import Header from '../../Components/Header/Header';
+import ProductCart from '../../Components/ProductCart';
+
 
 class Cart extends Component {
+    
 
     render(){
+
         return(
             <div className="Cart">
                 <Header />
@@ -21,102 +26,24 @@ class Cart extends Component {
                     </div>
 
                     <div className="Cart-products">
-
-
-
-                        <div className="Cart-product">
-                            <div className="Cart-img"></div>
-                            <div className="Cart-product-container">
-                                <div className="Cart-description">
-                                    <div className="Cart-description-title">
-                                        <h4>Samsum Galaxy S4</h4>
-                                        <FaTrashAlt />
-                                    </div> 
-                                    <p className="Cart-smallLetter">Product Category</p>
-                                </div>
-                                <div className="Cart-unitPrice">
-                                    <p className="Cart-smallLetter">Unit Price</p>
-                                    <p className="Cart-price">$101.50</p>
-                                </div>
-                                <div className="Cart-qty">
-                                    <label htmlFor="sort-qty" className="Cart-smallLetter" >Qty:</label>
-                                    <select name="sort-qty" id="sort-qty">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <div className="Cart-totalPrice">
-                                    <p>$101.50</p>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            this.props.cart.products.map(data => (
+                                <ProductCart 
+                                    key={ data.id }
+                                    id = { data.id }
+                                    name = { data.name }
+                                    image = { data.image }
+                                    price = { data.price }
+                                    category = { data.category }
+                                    quantity = { data.quantity }
+                                />
+                            ))
+                        }
                         
-                        
-                        <div className="Cart-product">
-                            <div className="Cart-img"></div>
-                            <div className="Cart-product-container">
-                                <div className="Cart-description">
-                                    <div className="Cart-description-title">
-                                        <h4>Samsum Galaxy S4</h4>
-                                        <FaTrashAlt />
-                                    </div> 
-                                    <p className="Cart-smallLetter">Product Category</p>
-                                </div>
-                                <div className="Cart-unitPrice">
-                                    <p className="Cart-smallLetter">Unit Price</p>
-                                    <p className="Cart-price">$101.50</p>
-                                </div>
-                                <div className="Cart-qty">
-                                    <label htmlFor="sort-qty" className="Cart-smallLetter" >Qty:</label>
-                                    <select name="sort-qty" id="sort-qty">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <div className="Cart-totalPrice">
-                                    <p>$101.50</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <div className="Cart-product">
-                            <div className="Cart-img"></div>
-                            <div className="Cart-product-container">
-                                <div className="Cart-description">
-                                    <div className="Cart-description-title">
-                                        <h4>Samsum Galaxy S4</h4>
-                                        <FaTrashAlt />
-                                    </div> 
-                                    <p className="Cart-smallLetter">Product Category</p>
-                                </div>
-                                <div className="Cart-unitPrice">
-                                    <p className="Cart-smallLetter">Unit Price</p>
-                                    <p className="Cart-price">$101.50</p>
-                                </div>
-                                <div className="Cart-qty">
-                                    <label htmlFor="sort-qty" className="Cart-smallLetter" >Qty:</label>
-                                    <select name="sort-qty" id="sort-qty">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <div className="Cart-totalPrice">
-                                    <p>$101.50</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-
-
                     </div>
 
                     <div className="Cart-footer">
-                        <a href="localhost">Continue Shopping</a>
+                        <Link to='/home' >Continue Shopping</Link>
                         <p>Total: $440.43</p>
                     </div>
                     <div className="Cart-buttonCheck">
@@ -132,4 +59,8 @@ class Cart extends Component {
 
 }
 
-export default Cart;
+const mapStateToProps = state => ({
+    cart:state.cart
+});
+
+export default connect(mapStateToProps,null)(Cart);

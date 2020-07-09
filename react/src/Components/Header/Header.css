@@ -5,10 +5,14 @@
 */
 
 /*--------- 1. Header --------*/
-
+#root{
+    display: flex;
+    flex-direction: column;
+}
 .Header{
     width: 100%;
     height: 60px;
+    position: fixed;
     background-color: white;
 }
 .Header-container{

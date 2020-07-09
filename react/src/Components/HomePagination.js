@@ -6,10 +6,9 @@ import { TiArrowLeftThick,TiArrowRightThick } from "react-icons/ti";
 
 class HomePagination extends Component {
 
-
-
     getProducts(){
         this.props.getProducts();
+        this.props.ALPHA_ORDER();
         window.scrollTo(0, 0);
     }
 
@@ -49,6 +48,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    ALPHA_ORDER: () => dispatch({ type:'ALPHA_ORDER' }),
     PAGINATION_CURRENT: (data) => dispatch({type:'PAGINATION_OFFSET',payload:data})
 });
 

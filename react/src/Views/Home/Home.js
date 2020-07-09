@@ -76,22 +76,24 @@ class Home extends Component {
         return(
             <div className='Home'>
                 <Header />
-                { this.props.HomeReducer.loading ? <h1 className="Home-empty">No hay productos para mostrar.</h1> :
+                { this.props.products.loading ? <h1 className="Home-empty">No hay productos para mostrar.</h1> :
 
                     <div className="Home-main">
                         <Sort />
                         <div className="Home-products">
                         {
-                            this.props.HomeReducer.products.map(data => (
+                            this.props.products.products.map(data => (
                                 <Product 
                                         key = {data.idProduct} 
                                         id  = {data.idProduct}
                                         name = {data.name}
                                         price = {data.price}
+                                        quantity = {data.quantity}
                                         image = {data.image}
                                         description = {data.description}
                                         publication_date = {data.publication_date}
                                         category = {data.category}
+                                        addedToCart = {data.addedToCart}
                                     />
                             ))
                         }
@@ -111,7 +113,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-    HomeReducer:state.HomeReducer,
+    products:state.products,
     paginationBoxes:state.paginationBoxes,
     paginationCurrent:state.paginationCurrent
 });
@@ -119,7 +121,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     GET_PRODUCTS: (data) => dispatch({type:'GET_PRODUCT_SUCCESS',offset:data}),
     PAGINATION: () => dispatch({type:'GET_BOXES'}),
-    PAGINATION_CURRENT: (data) => dispatch({type:'PAGINATION_OFFSET',payload:data})
+    PAGINATION_CURRENT: (data) => dispatch({type:'PAGINATION_OFFSET',payload:data}),
 });
 
 

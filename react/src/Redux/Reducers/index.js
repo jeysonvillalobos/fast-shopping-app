@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
-import HomeReducer from './HomeReducer';
+import { products } from './productsReducer';
+import { cart } from './cartReducer';
 import { paginationBoxes,paginationCurrent } from './PaginationReducer';
 
 const Reducers = combineReducers({
-    HomeReducer,
+    products,
+    cart,
     paginationBoxes,
     paginationCurrent
 });

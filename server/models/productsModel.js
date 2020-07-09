@@ -1,4 +1,4 @@
-const db = require('../../config/database');
+const db = require('../config/database');
 
 module.exports = {
 
@@ -6,6 +6,7 @@ module.exports = {
         db.query(`select products.idProduct, 
         products.name,
         products.price,
+        products.quantity,
         products.image,
         products.description,
         products.publication_date,

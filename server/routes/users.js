@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const load = require('../../middleware/load');
+const load = require('../middleware/load');
 const USERS_MODEL = load.Model("usersModel");
 
 router.post('/insert',function(req,res){

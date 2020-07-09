@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const load = require('../../middleware/load');
+const load = require('../middleware/load');
 const PRODUCTS_MODEL = load.Model("productsModel");
 
 router.get('/page/:offset',function(req,res){
