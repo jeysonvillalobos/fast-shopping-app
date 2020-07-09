@@ -11,9 +11,21 @@ import ProductCart from '../../Components/ProductCart';
 
 
 class Cart extends Component {
-    
+
+    componentDidMount(){
+        this.props.BUBBLE();
+    }
 
     render(){
+        var checkoutButton;
+
+        if(this.props.cart.products.length > 0 )
+        {
+            checkoutButton = <Link to='/checkout'><button className="button">Check Out</button></Link>; 
+        }
+        else{
+            checkoutButton = "";
+        }
 
         return(
             <div className="Cart">
@@ -22,11 +34,15 @@ class Cart extends Component {
                 <div className="Cart-main">
                     <div className="Cart-title">
                         <h3>Shopping Cart</h3>
-                        <Link to='/checkout'><button className="button">Check Out</button></Link>
+                       { checkoutButton }
+
                     </div>
 
                     <div className="Cart-products">
-                        {
+                        
+                        {   
+                            this.props.cart.products.length > 0 ?
+
                             this.props.cart.products.map(data => (
                                 <ProductCart 
                                     key={ data.id }
@@ -38,21 +54,20 @@ class Cart extends Component {
                                     quantity = { data.quantity }
                                 />
                             ))
+                            :
+                            <h3 style={{textAlign:'center'}}>There are no products added to the cart</h3>
                         }
                         
                     </div>
 
                     <div className="Cart-footer">
                         <Link to='/home' >Continue Shopping</Link>
-                        <p>Total: $440.43</p>
+                        <p>Total: ${this.props.cart.total}</p>
                     </div>
                     <div className="Cart-buttonCheck">
-                        <Link to='/checkout'><button className="button">Check Out</button></Link>
+                        { checkoutButton }
                     </div>
-
                 </div>
-
-
             </div>
         );
     }
@@ -63,4 +78,9 @@ const mapStateToProps = state => ({
     cart:state.cart
 });
 
-export default connect(mapStateToProps,null)(Cart);
+const mapdispatchToProps = dispatch => ({
+    TOTAL: data => dispatch({ type:'TOTAL',payload:data }),
+    BUBBLE: () => dispatch({ type:'BUBBLE' })
+});
+
+export default connect(mapStateToProps,mapdispatchToProps)(Cart);
