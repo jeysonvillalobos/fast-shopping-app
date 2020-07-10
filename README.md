@@ -11,27 +11,27 @@ $ git clone https://github.com/jeysonvillalobos/fast-shopping-app.git
 ```
 
 Once downloaded you have to download the node dependencies
-### React 
+### Front 
 ```sh
-$ C:\fast-shopping-app\react> npm install
+$ C:\fast-shopping-app\front> npm install
 ```
-### Server 
+### Backend 
 ```sh
-$ C:\fast-shopping-app\server> npm install
+$ C:\fast-shopping-app> npm install
 ```
 
 ## Database connection
 
 Inside the server folder there is a folder called DBquery, there is the database of Fast shopping app.
 ```sh
-fast-shopping-app\server\DBquery\Query.sql
+fast-shopping-app\front\DBquery\Query.sql
 ```
 Run Query.sql in your mysql database.
 
 ### Server config
 inside the server folder there is a file called .env. You have to edit this file and enter your data to enter the database.
 ```sh
-$ fast-shopping-app\server\.dotenv
+$ fast-shopping-app\.env
 ```
 
 ```sh
@@ -44,10 +44,7 @@ DB_DATABASE=fastshopping
 ## Run project
 Go to each of the reaction and server folders and run the following commands from the console.
 ```sh
-$ C:\fast-shopping-app\react> npm start
-```
-```sh
-$ C:\fast-shopping-app\react> node app.js
+$ C:\fast-shopping-app> npm start
 ```
 
 Thank you very much.
