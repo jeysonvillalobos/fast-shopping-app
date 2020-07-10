@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './Checkout.css';
 import './CheckoutResponsive.css';
 
@@ -9,14 +11,83 @@ class Checkout extends Component {
 
     state = {
         newCustomer:true,
-        selectedOption:'newCustomer'
+        selectedOption:'newCustomer',
+        fullName:'',
+        id:'',
+        address:'',
+        phoneNumber:'',
+        email:'',
+        lookupEmail:''
     };
 
+    componentDidUpdate(){
+        if(this.props.users.status === true)
+        {
+            this.props.history.push('/thanks');
+        }
+    }
+
     radioHandle(data){
-        console.log(data.target.value);
         this.setState({
             selectedOption: data.target.value
         });
+    }
+
+
+    inputHandler(e){
+        this.setState({
+            [e.target.name]:e.target.value
+        });
+    }
+
+    placeOrder() {
+        if(this.state.selectedOption === 'newCustomer'){
+
+            let productsIds;
+            productsIds = this.props.cart.products.map(data => data.id);
+
+            let formData = {
+                fullname:this.state.fullName,
+                id:this.state.id,
+                address:this.state.address,
+                phoneNumber:this.state.phoneNumber,
+                email:this.state.email,
+                products:productsIds
+            };
+
+            this.props.INSERT_USER_SUCCESS(formData);
+
+        }
+        else{
+            let data;
+            let productsIds;
+    
+            if(this.props.users.users.length > 0)
+            {
+                productsIds = this.props.cart.products.map(data => data.id);
+                data = {
+                    email:this.state.lookupEmail,
+                    products:productsIds
+                }
+
+                this.props.INSERT_USER_BY_EMAIL(data);
+                this.props.history.push('/thanks');
+            }
+            else{
+                this.props.SEARCH_USER_SUCCESS('');
+            }
+
+
+        }
+    }
+
+    lookup(){
+        let email = this.state.lookupEmail;
+        this.props.SEARCH_USER_SUCCESS(email);
+    }
+
+    clearSearch(){
+        this.props.CLEAR_SEARCH();
     }
 
     render(){
@@ -55,41 +126,58 @@ class Checkout extends Component {
                                         <tbody>
                                             <tr>
                                                 <td className="Checkout-td"><label htmlFor="fullName">Full name <span className="Checkout-require">*</span></label></td>
-                                                <td  className="Checkout-td-input"><input type="text" id="fullName" className="Checkout-input"/></td>
+                                                <td  className="Checkout-td-input"><input value={this.state.fullName} onChange={this.inputHandler.bind(this)} type="text" name="fullName" id="fullName" className="Checkout-input"/></td>
                                             </tr>
                                             <tr>
                                                 <td className="Checkout-td"><label htmlFor="id">Id <span className="Checkout-require">*</span></label></td>
-                                                <td><input type="text" id="id" className="Checkout-input"/></td>
+                                                <td><input value={this.state.id} onChange={this.inputHandler.bind(this)} type="text" id="id" name="id" className="Checkout-input"/></td>
                                             </tr>
                                             <tr>
                                                 <td className="Checkout-td"><label htmlFor="address">Address <span className="Checkout-require">*</span></label></td>
-                                                <td><textarea name="address" id="address" className="Checkout-input" rows="5"></textarea></td>
+                                                <td><textarea value={this.state.address} onChange={this.inputHandler.bind(this)} id="address" name="address" className="Checkout-input" rows="5"></textarea></td>
                                             </tr>
                                             <tr>
                                                 <td className="Checkout-td"><label htmlFor="phoneNumber">Phone Number</label></td>
-                                                <td><input type="text" id="phoneNumber" className="Checkout-input"/></td>
+                                                <td><input value={this.state.phoneNumber} onChange={this.inputHandler.bind(this)} type="text" id="phoneNumber" name="phoneNumber" className="Checkout-input"/></td>
                                             </tr>
                                             <tr>
                                                 <td className="Checkout-td"><label htmlFor="email">Email <span className="Checkout-require">*</span></label></td>
-                                                <td><input type="email" id="email" className="Checkout-input"/></td>
+                                                <td><input value={this.state.email} onChange={this.inputHandler.bind(this)} type="email" id="email" name="email" className="Checkout-input"/></td>
                                             </tr>
                                         </tbody>   
                                     </table>
+                                    { this.props.users.status === false ?  <p className="Checkout-msg-status">{this.props.users.msg}</p> : null }
+                                    
                                 </form>
+                                
+                                
                             
                                 :
 
-                                <div className="Checkout-userExist">
-                                    <h4>Welcome back, John Doe</h4>
-                                    <p>ID:123456</p>
-                                    <p>Address: Main Street United States</p>
-                                    <p>Phone Number: 000 000 0000</p>
-                                    <p>Email: johndoe@email.com</p>
-                                    <p className="Checkout-lookupAgain">Not John? Lookup again</p>
-                                </div>
+                                    this.props.users.users.length === 0 ?
+                                    <div className="Checkout-userLookup">
+                                            <label htmlFor="lookupEmail">Email</label>
+                                            <input type="text" id="lookupEmail" name='lookupEmail' value={this.state.lookupEmail} onChange={this.inputHandler.bind(this)}  className="Checkout-lookupEmail"/>
+                                            <div className="Checkout-buttonLookup">
+                                                <button className="Button" onClick={this.lookup.bind(this)}>Lookup</button>
+                                            </div>
+                                            { this.props.users.found === true ? <p style={{color:'red'}}>User not found</p> : null } 
+                                    </div>
+                                    
+
+                                    :
+                                    this.props.users.users.map(data => (
+                                        <div key={data.id} className="Checkout-userExist">
+                                            <h4>Welcome back, {data.fullname}</h4>
+                                            <p>ID:{data.id}</p>
+                                            <p>Address: { data.address }</p>
+                                            <p>Phone Number: { data.phoneNumber }</p>
+                                            <p>Email: { data.email }</p>
+                                            <p className="Checkout-lookupAgain" onClick={ this.clearSearch.bind(this) }>Not {data.fullname.split(' ')[0]}? Lookup again</p>
+                                        </div>
+                                    ))
+ 
                             }
-
-
 
                         </div>
                     </div>
@@ -105,33 +193,25 @@ class Checkout extends Component {
                                     <th>Units</th>
                                     <th>Total Price</th>
                                 </tr>
-                                <tr>
-                                    <td>Samsung Galaxy J5</td>
-                                    <td>10150</td>
-                                    <td>1</td>
-                                    <td>10150</td>
-                                </tr>
-                                <tr>
-                                    <td>Adidas Shoes</td>
-                                    <td>10000</td>
-                                    <td>2</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>Adidas Shoes</td>
-                                    <td>10000</td>
-                                    <td>2</td>
-                                    <td>20000</td>
-                                </tr>
+                                {
+                                    this.props.cart.products.map(data => (
+                                        <tr key={data.id}>
+                                            <td>{data.name}</td>
+                                            { data.localQTY ? <td>{data.localQTY}</td> : <td>1</td> }
+                                            <td>{data.price}</td>
+                                            { data.priceQty ? <td>{ data.priceQty }</td> : <td>{data.price}</td> }
+                                        </tr>
+                                    ))
+                                }
                             </tbody> 
                         </table>
 
                         <div className="Checkout-totalPrice">
-                            <p>Total:$87.96</p>
+                            <p>Total:${this.props.cart.total}</p>
                         </div>
 
                         <div className="Checkout-button">
-                            <button className="Button">Place Order</button>
+                            <button className="Button" onClick={this.placeOrder.bind(this)}>Place Order</button>
                         </div>
 
                     </div>
@@ -144,4 +224,17 @@ class Checkout extends Component {
 
 }
 
-export default Checkout;
+const mapStateToProps = state => ({
+    users:state.users,
+    cart:state.cart
+});
+
+const mapDispatchToProps = dispatch => ({
+    INSERT_USER_SUCCESS: data => dispatch({ type:'INSERT_USER_SUCCESS',payload:data }),
+    SEARCH_USER_SUCCESS: data => dispatch({ type:'SEARCH_USER_SUCCESS',payload:data }),
+    CLEAR_SEARCH: () => dispatch({ type:'CLEAR_SEARCH' }),
+    INSERT_USER_BY_EMAIL: data => dispatch({ type:'INSERT_USER_BY_EMAIL',payload:data })
+});
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Checkout);

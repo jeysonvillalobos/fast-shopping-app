@@ -7,14 +7,6 @@ var initialState = {
 const products = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_PRODUCTS':
-            // if(action.payload.length === 0)
-            // {
-            //     return {...state,products:action.payload,loading:true};
-            // }
-            // else{
-            //     return {...state,products:action.payload,loading:false};
-            // }
-            // let payload = action.payload.map(data => ({...data,addedToCart:false}));
             return {...state,products:action.payload,loading:false};
         case 'ALPHA_ORDER':
             let alpha = state.products.sort((a, b) => a.idProduct - b.idProduct);

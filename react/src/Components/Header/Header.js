@@ -9,7 +9,27 @@ import { FaShippingFast } from "react-icons/fa";
 
 class Header extends Component {
 
+    state = {
+        cartLogo:true,
+    };
+
     componentDidMount(){
+        this.cartLogo();
+        this.addCart();
+    }
+
+    cartLogo(){
+        let pathname = window.location.pathname;
+
+        if(pathname === '/cart' || pathname === '/checkout' || pathname === '/thanks')
+        {
+            this.setState({ cartLogo:false  });
+        }
+        else{
+            this.setState({ cartLogo:true  });
+        }
+    }
+    addCart(){
         var product = {};
         if(this.props.cart.products.length === 0)
         {
@@ -36,7 +56,6 @@ class Header extends Component {
 
     }
 
-
     render(){
         return(
             <header className="Header">
@@ -49,12 +68,17 @@ class Header extends Component {
                      </div>
                     
                     <div className='Header-cart'>
-                        <Link to='/cart'>
-                            <TiShoppingCart className="carro" size={32} style={{position:'absolute',cursor:'pointer'}}/>
-                            <div className="Header-cart-items-num">
-                                <p>{ this.props.cart.bubble }</p>
-                            </div>
-                        </ Link>
+                        { 
+                            this.state.cartLogo ?
+                                <Link to='/cart'>
+                                    <TiShoppingCart className="carro" size={32} style={{position:'absolute',cursor:'pointer'}}/>
+                                    <div className="Header-cart-items-num">
+                                        <p>{ this.props.cart.bubble }</p>
+                                    </div>
+                                </ Link>
+                            :
+                            null
+                        }
                     </div>
                 </div>
             </header>

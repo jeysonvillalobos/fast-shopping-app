@@ -12,10 +12,6 @@ import ProductCart from '../../Components/ProductCart';
 
 class Cart extends Component {
 
-    componentDidMount(){
-        this.props.BUBBLE();
-    }
-
     render(){
         var checkoutButton;
 
@@ -52,6 +48,8 @@ class Cart extends Component {
                                     price = { data.price }
                                     category = { data.category }
                                     quantity = { data.quantity }
+                                    priceQty = { data.priceQty }
+                                    localQTY = { data.localQTY }
                                 />
                             ))
                             :

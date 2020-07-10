@@ -5,6 +5,7 @@
     2.Checkout-customerInformation
     3.Checkout-orderSummary
     4.Checkout-userExist
+    5.Checkout-userLookup
 */
 
 /*-------- 1.Checkout-main ---------*/
@@ -68,6 +69,10 @@
     padding: 3px;
     resize: none;
 }
+.Checkout-msg-status{
+    margin-left: 10px;
+    color: red;
+}
 
 /*-------- 3.Checkout-orderSummary ---------*/
 
@@ -111,7 +116,7 @@
     width: 110px;
     padding: 5px;
     background-color: #1A73E8;
-    border-color: #1A73E8;
+    border-color: #1a375e;
     border-radius: 2px;
     color:white;
     font-weight: bold;
@@ -135,4 +140,27 @@
     color: #1A73E8;
     cursor: pointer;
     text-decoration: underline;
+}
+
+/*-------- 5.Checkout-userLookup ---------*/
+
+.Checkout-userLookup{
+    width: 60%;
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+}
+.Checkout-lookupEmail{
+    width: 93%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+.Checkout-buttonLookup{
+    width: 100%;
+    display: flex;
+    border: none;
+    justify-content: flex-end;
 }

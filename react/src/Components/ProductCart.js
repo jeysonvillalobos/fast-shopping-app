@@ -11,9 +11,19 @@ class ProductCart extends Component {
     };
 
     componentDidMount(){
+        let total;
+        if(this.props.priceQty)
+        {
+            total = this.props.priceQty;
+        }
+        else{
+            total = this.props.price;
+        }
         this.setState({
-            total:this.props.price
+            total:total,
+            selectTag:this.props.localQTY
         });
+
     }
 
     handleSelect(e){
@@ -26,7 +36,8 @@ class ProductCart extends Component {
     
         this.props.UPDATE_CART({
             productId:this.props.id,
-            price:total
+            price:total,
+            localQTY:e.target.value
         });
 
         this.props.TOTAL();
@@ -104,7 +115,9 @@ class ProductCart extends Component {
 
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    cart:state.cart
+});
 const mapDispatchToProps = dispatch => ({
     UPDATE_CART:data => dispatch({ type:'UPDATE_CART',payload:data }),
     DELETE_ITEM: data => dispatch({ type:'DELETE_ITEM',payload:data }),

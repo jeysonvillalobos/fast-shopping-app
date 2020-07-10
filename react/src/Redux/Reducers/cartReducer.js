@@ -22,7 +22,8 @@ const cart = (state = initialState,action) => {
                 if(data.id === action.payload.productId){
                     return {
                         ...data,
-                        priceQty:action.payload.price
+                        priceQty:action.payload.price,
+                        localQTY:action.payload.localQTY
                     }
                 }
                 else{
@@ -59,10 +60,9 @@ const cart = (state = initialState,action) => {
             else{
                 return { ...state,total:0 };
             }
-
-            
-            
-
+        
+        case 'CLEAR_ALL':
+            return { products:[], total:0,bubble:0 }
         default:
             return state;
     }
