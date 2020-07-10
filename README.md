@@ -31,7 +31,7 @@ Run Query.sql in your mysql database.
 ### Server config
 inside the server folder there is a file called .env. You have to edit this file and enter your data to enter the database.
 ```sh
-$ fast-shopping-app\.dotenv
+$ fast-shopping-app\.env
 ```
 
 ```sh
