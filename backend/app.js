@@ -10,8 +10,6 @@ app.use(bodyParser.json());
 
 const router = require('./router');
 
-
 app.use(router);
-
 
 app.listen(8080);

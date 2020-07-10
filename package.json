@@ -1,0 +1,29 @@
+{
+  "name": "fast-shopping-app",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Fast Shopping App</h1>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend":"nodemon backend/app.js",
+    "start": "concurrently \" npm run backend\" \"npm start --prefix front\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeysonvillalobos/fast-shopping-app.git"
+  },
+  "author": "Jeyson Villalobos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeysonvillalobos/fast-shopping-app/issues"
+  },
+  "homepage": "https://github.com/jeysonvillalobos/fast-shopping-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
