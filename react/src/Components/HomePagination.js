@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { TiArrowLeftThick,TiArrowRightThick } from "react-icons/ti";
@@ -13,7 +13,38 @@ class HomePagination extends Component {
     }
 
     arrows(data){
-        this.props.arrows(data);
+        let pageCurrent = this.props.pageCurrent;
+        let totalBox = Math.floor(this.props.paginationBoxes / 10);
+        
+        if(pageCurrent)
+        {
+            if(data === 0)
+            {
+                if(pageCurrent !== 0)
+                {
+                    this.props.history.push(`/home/${ pageCurrent - 1}`);
+                    this.getProducts();
+                    window.scrollTo(0, 0);
+                }
+            }
+            else if (data === 1){
+                if(pageCurrent !== totalBox)
+                {
+                    this.props.history.push(`/home/${ pageCurrent + 1}`);
+                    this.getProducts();
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+        else{
+            if(data === 1)
+            {
+                this.props.history.push(`/home/1`);
+                this.getProducts();
+                window.scrollTo(0, 0);
+            }
+        }
+
     }
 
     render(){
@@ -21,7 +52,7 @@ class HomePagination extends Component {
 
         var offset = this.props.paginationCurrent;
 
-        for(let i = 0; i <= this.props.productsCount; i++)
+        for(let i = 0; i < this.props.productsCount; i++)
         {
             if(offset === i)
             {
@@ -53,4 +84,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(HomePagination);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(HomePagination));

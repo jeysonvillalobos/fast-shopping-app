@@ -8,7 +8,6 @@ import './CheckoutResponsive.css';
 import Header from '../../Components/Header/Header';
 
 class Checkout extends Component {
-
     state = {
         newCustomer:true,
         selectedOption:'newCustomer',
@@ -19,27 +18,22 @@ class Checkout extends Component {
         email:'',
         lookupEmail:''
     };
-
     componentDidUpdate(){
         if(this.props.users.status === true)
         {
             this.props.history.push('/thanks');
         }
     }
-
     radioHandle(data){
         this.setState({
             selectedOption: data.target.value
         });
     }
-
-
     inputHandler(e){
         this.setState({
             [e.target.name]:e.target.value
         });
     }
-
     placeOrder() {
         if(this.state.selectedOption === 'newCustomer'){
 
@@ -54,9 +48,7 @@ class Checkout extends Component {
                 email:this.state.email,
                 products:productsIds
             };
-
             this.props.INSERT_USER_SUCCESS(formData);
-
         }
         else{
             let data;
@@ -76,8 +68,6 @@ class Checkout extends Component {
             else{
                 this.props.SEARCH_USER_SUCCESS('');
             }
-
-
         }
     }
 
@@ -94,10 +84,7 @@ class Checkout extends Component {
         return(
             <div className="Checkout">
                 <Header />
-                
                 <div className="Checkout-main">
-
-
                     <div className="Checkout-customerInformation">
                         <h3>Customer Information</h3>
                         <div className="Checkout-userData">
@@ -118,8 +105,6 @@ class Checkout extends Component {
                                     </tbody>
                                 </table>
                             </div>
-
-        
                             { this.state.selectedOption === 'newCustomer' ? 
                                 <form className="Checkout-form" >
                                     <table className="Checkout-tableForm">
@@ -149,22 +134,16 @@ class Checkout extends Component {
                                     { this.props.users.status === false ?  <p className="Checkout-msg-status">{this.props.users.msg}</p> : null }
                                     
                                 </form>
-                                
-                                
-                            
                                 :
-
                                     this.props.users.users.length === 0 ?
                                     <div className="Checkout-userLookup">
                                             <label htmlFor="lookupEmail">Email</label>
-                                            <input type="text" id="lookupEmail" name='lookupEmail' value={this.state.lookupEmail} onChange={this.inputHandler.bind(this)}  className="Checkout-lookupEmail"/>
+                                            <input type="text" id="lookupEmail"name='lookupEmail' value={this.state.lookupEmail} onChange={this.inputHandler.bind(this)}  className="Checkout-lookupEmail"/>
                                             <div className="Checkout-buttonLookup">
                                                 <button className="Button" onClick={this.lookup.bind(this)}>Lookup</button>
                                             </div>
                                             { this.props.users.found === true ? <p style={{color:'red'}}>User not found</p> : null } 
                                     </div>
-                                    
-
                                     :
                                     this.props.users.users.map(data => (
                                         <div key={data.id} className="Checkout-userExist">
@@ -176,13 +155,9 @@ class Checkout extends Component {
                                             <p className="Checkout-lookupAgain" onClick={ this.clearSearch.bind(this) }>Not {data.fullname.split(' ')[0]}? Lookup again</p>
                                         </div>
                                     ))
- 
                             }
-
                         </div>
                     </div>
-
-
                     <div className="Checkout-orderSummary">
                         <h3>Order Summary</h3>
                         <table className="Checkout-tableOrder">
@@ -205,23 +180,17 @@ class Checkout extends Component {
                                 }
                             </tbody> 
                         </table>
-
                         <div className="Checkout-totalPrice">
                             <p>Total:${this.props.cart.total}</p>
                         </div>
-
                         <div className="Checkout-button">
                             <button className="Button" onClick={this.placeOrder.bind(this)}>Place Order</button>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
         );
     }
-
 }
 
 const mapStateToProps = state => ({
@@ -235,6 +204,5 @@ const mapDispatchToProps = dispatch => ({
     CLEAR_SEARCH: () => dispatch({ type:'CLEAR_SEARCH' }),
     INSERT_USER_BY_EMAIL: data => dispatch({ type:'INSERT_USER_BY_EMAIL',payload:data })
 });
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(Checkout);

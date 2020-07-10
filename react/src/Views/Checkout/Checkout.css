@@ -33,7 +33,9 @@
     width: 100%;
     height: auto;
     padding: 20px 10px 20px 0px;
-    border: 1px solid black;
+    box-shadow:0px 0px 1px 0px #606060;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .Checkout-td-label{
@@ -42,13 +44,16 @@
 }
 .Checkout-td-radio{
     text-align: end;
-    width: 160px;
+    width: 168px;
 }
 .Checkout-td-radio label{
     margin: 5px;
 }
 .Checkout-form{
     margin-top: 10px;
+}
+.Checkout-tableForm{
+    width: 92%;
 }
 .Checkout-require{
     color: red;
@@ -68,6 +73,8 @@
     outline: none;
     padding: 3px;
     resize: none;
+    border: none;
+    box-shadow: 0px 0px 1px 0px #2a2a2a;
 }
 .Checkout-msg-status{
     margin-left: 10px;
@@ -87,16 +94,17 @@
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    background-color: white;
 }
 
 .Checkout-tableOrder td,th{
-    border: 1px solid #dddddd;
+    box-shadow:0px 0px 1px 0px #606060;
     text-align: left;
     padding: 8px;
 }
 
 .Checkout-tableOrder tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #ebebeb;
 }
 
 .Checkout-totalPrice{
@@ -156,6 +164,8 @@
     margin-bottom: 10px;
     padding: 5px;
     outline: none;
+    border: none;
+    box-shadow: 0px 0px 1px 0px #2a2a2a;
 }
 
 .Checkout-buttonLookup{

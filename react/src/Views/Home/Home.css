@@ -13,7 +13,16 @@
 }
 .Home-empty{
     text-align: center;
-    margin: 10px;
+    margin-top: 100px;
+}
+.Spinner{
+    width: 100px;
+    height: 100px;
+    background-image: url('https://migraineadmin.patientadvocate.org/wp-content/themes/widget/assets/images/widget/loader.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:auto;
 }
 .Home-sort{
     width: 100%;
@@ -41,20 +50,23 @@
     border-radius: 5px;
     padding: 10px;
     display: flex;
+    box-shadow:0px 0px 1px 0px #606060;
 }
 
 .Home-img{
     width: 30%;
     height: 100%;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    box-shadow:0px 0px 1px 0px #606060;
 }
 .Home-description{
-    width: 70%;
+    width: 65%;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+
+    margin-left: 20px;
 }
 .Home-descriptionItem{
     flex: 1;
@@ -113,8 +125,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     cursor: pointer;
+    margin: 3px;
+    box-shadow:0px 0px 1px 0px #606060;
 }
 .Home-box-current{
     background-color: #1A73E8;

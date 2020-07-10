@@ -62,7 +62,7 @@ class Header extends Component {
                 <div className="Header-container">
                      <div className="Header-logo">
                          <Link to='/'>
-                            <FaShippingFast size={30}/>
+                            <FaShippingFast color='#606060' size={30}/>
                             <h2 className="Header-title">Fast Shopping</h2>
                         </Link>
                      </div>
@@ -71,7 +71,7 @@ class Header extends Component {
                         { 
                             this.state.cartLogo ?
                                 <Link to='/cart'>
-                                    <TiShoppingCart className="carro" size={32} style={{position:'absolute',cursor:'pointer'}}/>
+                                    <TiShoppingCart color='#606060' size={32} style={{position:'absolute',cursor:'pointer'}}/>
                                     <div className="Header-cart-items-num">
                                         <p>{ this.props.cart.bubble }</p>
                                     </div>
